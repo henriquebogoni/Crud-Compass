@@ -4,9 +4,9 @@ import { UpdateClientNameBusiness } from '@business/UpdateClientNameBusiness';
 const updateClientNameBusiness = new UpdateClientNameBusiness()
 
 class UpdateClientNameController {
-    async updateNameClient(req: Request, res: Response) {
-        const updateName = await updateClientNameBusiness.updateNameClient(req)
-        return res.json(updateName)
+    async updateClient(req: Request, res: Response) {
+        const updateClient = await updateClientNameBusiness.updateClient(req.body)
+        res.status(204).json(updateClient)
     }
 }
 export { UpdateClientNameController }

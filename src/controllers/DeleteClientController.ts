@@ -5,8 +5,8 @@ const deleteClientBusiness = new DeleteClientBusiness()
 
 class DeleteClientController {
     async deleteClient(req: Request, res: Response) {
-        const delClient = await deleteClientBusiness.deleteClient(req.body)
-        return res.json(delClient)
+        const delClient = await deleteClientBusiness.deleteClient(req.params)
+        return res.status(204).json(delClient)
     }
 }
 export { DeleteClientController }

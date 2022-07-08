@@ -1,13 +1,14 @@
 import { prismaClient } from '../prismadb/prismaConnect'
+import {IClient} from '@interfaces/IClient'
 
 class UpdateClientNameBusiness {
-    async updateNameClient(client: any) {
+    async updateClient(client: IClient) {
         return await prismaClient.client.update({
             where: {
-                id: client.params.id
+                id: client.id
             },
             data:{ 
-                name: client.body.name
+                name: client.name
             }
         })
     }

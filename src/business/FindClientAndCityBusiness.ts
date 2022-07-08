@@ -1,34 +1,22 @@
 import {prismaClient} from '../prismadb/prismaConnect'
+import {ICity} from '@interfaces/ICitys'
+import {IClient} from '@interfaces/IClient'
 
 class FindClientAndCityBusiness {
-    async findClientId(client: any) {
-        return await prismaClient.client.findFirst({
+    async findClient(client: IClient) {
+        return await prismaClient.client.findMany({
             where: {
-                id: client.id
-            }
-        })
-    }
-
-    async findClientName(client: any) {
-        return await prismaClient.client.findFirst({
-            where: {
+                id: client.id,
                 name: client.name
             }
         })
     }
 
-    async findCityUF(city: any) {
+    async findCity(city: ICity) {
         return await prismaClient.city.findMany({
             where: {
+                name: city.name,
                 uf: city.uf
-            }
-        })
-    }
-
-    async findCityName(city: any) {
-        return await prismaClient.city.findMany({
-            where: {
-                name: city.name
             }
         })
     }

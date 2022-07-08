@@ -6,12 +6,12 @@ const createdClientAndCityBusiness = new CreatedClientAndCityBusiness()
 class CreatedClientAndCityController {
     async createClient(req: Request, res: Response) {
         const responseClient = await createdClientAndCityBusiness.createClient(req.body)
-        return res.json(responseClient)
+        return res.status(200).json(responseClient)
     }
 
     async createCity(req: Request, res: Response) {
         const responseCity = await createdClientAndCityBusiness.createCity(req.body)
-        return res.json(responseCity)
+        return res.status(200).json(responseCity)
     }
 }
 export { CreatedClientAndCityController }

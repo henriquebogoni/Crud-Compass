@@ -4,24 +4,14 @@ import { FindClientAndCityBusiness } from '@business/FindClientAndCityBusiness';
 const findClientAndCityBusiness = new FindClientAndCityBusiness()
 
 class FindClientAndCityController {
-    async findClientId(req: Request, res: Response) {
-        const findClientId = await findClientAndCityBusiness.findClientId(req.params)
-        return res.json(findClientId)
+    async findClient(req: Request, res: Response) {
+        const findClient = await findClientAndCityBusiness.findClient(req.query)
+        return res.status(200).json(findClient)
     }
 
-    async findClientName(req: Request, res: Response) {
-        const findClientName = await findClientAndCityBusiness.findClientName(req.params)
-        return res.json(findClientName)
-    }
-
-    async findCityName(req: Request, res: Response) {
-        const findCityName = await findClientAndCityBusiness.findCityName(req.params)
-        return res.json(findCityName)
-    }
-
-    async findCityUF(req: Request, res: Response) {
-        const findCityUF = await findClientAndCityBusiness.findCityUF(req.params)
-        return res.json(findCityUF)
+    async findCity(req: Request, res: Response) {
+        const findCity = await findClientAndCityBusiness.findCity(req.query)
+        return res.status(200).json(findCity)
     }
 }
 export {FindClientAndCityController}
