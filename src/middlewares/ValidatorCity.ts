@@ -1,4 +1,5 @@
-import { body, validationResult } from 'express-validator';
+import { body, check, validationResult } from 'express-validator';
+import { uf } from '../enum/EnumUF'
 
 export const createCityValidate = [
     body('name')
@@ -14,7 +15,9 @@ export const createCityValidate = [
         .isEmpty()
         .withMessage('O campo uf é obrigatório.')
         .isString()
-        .withMessage('uf deve ser uma string'),
+        .withMessage('uf deve ser uma string')
+        .isIn(uf)
+        .withMessage(`uf deve ser um desses ${uf}`),
     (req: any, res: any, next: any) => {
         const errors = validationResult(req);
         if (!errors.isEmpty())

@@ -11,40 +11,40 @@ const findClientAndCityBusiness = new FindClientAndCityBusiness();
 describe('Find Business', () => {
     describe('Find client id', () => {
         it('Find client id in db', async () => {
-            findClientAndCityBusiness.findClientId = jest.fn(() =>
+            findClientAndCityBusiness.findClient = jest.fn(() =>
             Promise.resolve(mockFindClientId))
 
-            const users = await findClientAndCityBusiness.findClientId('62a8cf3677ec430408899353')
+            const users = await findClientAndCityBusiness.findClient({name: 'dirceu'})
             expect(users).toEqual(mockFindClientId)
         })
     })
 
     describe('Find client name', () => {
         it('Find client name in db', async () => {
-            findClientAndCityBusiness.findClientName = jest.fn(() =>
+            findClientAndCityBusiness.findClient = jest.fn(() =>
             Promise.resolve(mockFindClientName))
 
-            const users = await findClientAndCityBusiness.findClientName('dirceu')
+            const users = await findClientAndCityBusiness.findClient({name: 'dirceu'})
             expect(users).toEqual(mockFindClientName)
         })
     })
 
     describe('Find city uf', () => {
         it('Find city uf in db', async () => {
-            findClientAndCityBusiness.findCityUF = jest.fn(() =>
+            findClientAndCityBusiness.findCity = jest.fn(() =>
             Promise.resolve(mockFindCityUf))
 
-            const users = await findClientAndCityBusiness.findCityUF('RS')
+            const users = await findClientAndCityBusiness.findCity({uf: 'RS'})
             expect(users).toEqual(mockFindCityUf)
         })
     })
 
     describe('Find city name', () => {
         it('Find city name in db', async () => {
-            findClientAndCityBusiness.findCityName = jest.fn(() =>
+            findClientAndCityBusiness.findCity = jest.fn(() =>
             Promise.resolve(mockFindCityName))
 
-            const users = await findClientAndCityBusiness.findCityName('sao paulo')
+            const users = await findClientAndCityBusiness.findCity({uf: 'RS'})
             expect(users).toEqual(mockFindCityName)
         })
     })

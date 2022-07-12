@@ -1,13 +1,13 @@
-import {ICity} from '@interfaces/ICitys'
-import {IClient} from '@interfaces/IClient'
+import { ICity } from '@interfaces/ICitys'
+import { IClient } from '@interfaces/IClient'
 
 import { prismaClient } from '../prismadb/prismaConnect'
 import { generateId } from '@utils/GenerateID';
 
 class CreatedClientAndCityBusiness {
-    async createCity(city: ICity){
+    async createCity(city: ICity) {
         return await prismaClient.city.create({
-            data:{
+            data: {
                 id: generateId(),
                 name: city.name,
                 uf: city.uf
@@ -15,9 +15,9 @@ class CreatedClientAndCityBusiness {
         })
     }
 
-    async createClient(client: IClient){
+    async createClient(client: IClient) {
         return await prismaClient.client.create({
-            data:{
+            data: {
                 id: generateId(),
                 name: client.name,
                 sexo: client.sexo,

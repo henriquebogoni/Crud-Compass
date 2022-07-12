@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { CreatedClientAndCityBusiness } from '@business/CreatedClientAndCityBusiness'
 
-const createdClientAndCityBusiness = new CreatedClientAndCityBusiness()
+const createdClientAndCityBusiness = new CreatedClientAndCityBusiness();
 
 class CreatedClientAndCityController {
     async createClient(req: Request, res: Response) {

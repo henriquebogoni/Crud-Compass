@@ -8,10 +8,10 @@ const updateClientNameBusiness = new UpdateClientNameBusiness();
 describe('Create Business', () => {
     describe('Create Client', () => {
         it('Create client in db', async () => {
-            updateClientNameBusiness.updateNameClient = jest.fn(() =>
+            updateClientNameBusiness.updateClient = jest.fn(() =>
             Promise.resolve(mockUpdateClient))
 
-            const users = await updateClientNameBusiness.updateNameClient('claudio')
+            const users = await updateClientNameBusiness.updateClient({name: 'claudio'})
             expect(users).toEqual(mockUpdateClient)
         })
     })

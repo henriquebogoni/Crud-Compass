@@ -1,0 +1,351 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Essa aplicação tem o intuito de criar, editar, procurar e deletar usuarios e cidades",
+    "version": "1.0.0",
+    "title": "Crud Compass"
+  },
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/createClient": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Adiciona um novo usuario",
+        "description": "",
+        "operationId": "createClient",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Adicionar usuario ao banco de dados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/updateClient": {
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Altera um usuario",
+        "description": "",
+        "operationId": "updateClient",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Alterar um usuario no banco de dados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpUsuario"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/client/{id}": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Busca um usuario por id",
+        "description": "",
+        "operationId": "getClient",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do usuario.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/findClient/{name}": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Busca um usuario por nome",
+        "description": "",
+        "operationId": "findClient",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Nome do usuario.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/deleteClient/{name}": {
+      "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "summary": "Deleta usuario do banco de dados",
+        "description": "",
+        "operationId": "deleteUser",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Nome do usuario",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/createCity": {
+      "post": {
+        "tags": [
+          "Cidade"
+        ],
+        "summary": "Adiciona uma nova cidade",
+        "description": "",
+        "operationId": "createCity",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Adicionar usuario ao banco de dados",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateCity"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/city/{uf}": {
+      "get": {
+        "tags": [
+          "Cidade"
+        ],
+        "summary": "Busca uma cidade por UF",
+        "description": "",
+        "operationId": "city",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uf",
+            "in": "path",
+            "description": "uf da cidade.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/findCity/{name}": {
+      "get": {
+        "tags": [
+          "Cidade"
+        ],
+        "summary": "Busca uma cidade por nome",
+        "description": "",
+        "operationId": "findCity",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Nome da cidade.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Usuario": {
+      "type": "object",
+      "required": [
+        "name",
+        "sexo",
+        "dateNasc",
+        "age",
+        "city"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string",
+          "example": "Jurandir"
+        },
+        "sexo": {
+          "type": "string",
+          "example": "Masculino"
+        },
+        "dateNasc": {
+          "type": "string",
+          "example": "15/4/2022"
+        },
+        "age": {
+          "type": "string",
+          "example": "22"
+        },
+        "city": {
+          "type": "string",
+          "example": "Cerro Grande"
+        }
+      }
+    },
+    "UpUsuario": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "62c636d74ae7ba0977d2e54a"
+        },
+        "name": {
+          "type": "string",
+          "example": "Jurandir"
+        }
+      }
+    },
+    "CreateCity": {
+      "type": "object",
+      "required": [
+        "name",
+        "uf"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "teste"
+        },
+        "uf": {
+          "type": "string",
+          "example": "RS"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

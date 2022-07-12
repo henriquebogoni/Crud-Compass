@@ -15,7 +15,7 @@ const findClientAndCityController = new FindClientAndCityController()
 const deleteClientController = new DeleteClientController()
 const updateClientNameController = new UpdateClientNameController()
 
-router.post('/createdCity',createCityValidate, createdClientAndCityController.createCity);
+router.post('/createdCity', createCityValidate, createdClientAndCityController.createCity);
 router.get('/city', findClientAndCityController.findCity)
 
 router.post('/createdClient', createClientValidate, createdClientAndCityController.createClient);
