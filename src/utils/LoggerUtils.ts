@@ -7,7 +7,6 @@ export const logger = createLogger({
    ),
    defaultMeta: {
       name: 'crud-compass',
-      // msg: 
    },
    transports: [
       new transports.Console({
