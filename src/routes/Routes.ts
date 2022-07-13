@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import { createClientValidate } from '@middlewares/ValidatorClient'
-import { createCityValidate } from '@middlewares/ValidatorCity'
+import { validateCityJOI } from '@middlewares/ValidatorCityJOI'
+import { validateClientJOI } from '@middlewares/ValidatorClientJOI'
 
 import { CreatedClientAndCityController } from '@controller/CreatedClientAndCityController';
 import { FindClientAndCityController } from '@controller/FindClientAndCityController';
@@ -15,10 +15,10 @@ const findClientAndCityController = new FindClientAndCityController()
 const deleteClientController = new DeleteClientController()
 const updateClientNameController = new UpdateClientNameController()
 
-router.post('/createdCity', createCityValidate, createdClientAndCityController.createCity);
+router.post('/createdCity', validateCityJOI, createdClientAndCityController.createCity);
 router.get('/city', findClientAndCityController.findCity)
 
-router.post('/createdClient', createClientValidate, createdClientAndCityController.createClient);
+router.post('/createdClient', validateClientJOI, createdClientAndCityController.createClient);
 router.get('/client', findClientAndCityController.findClient)
 
 router.delete('/deleteClient/:name', deleteClientController.deleteClient)
