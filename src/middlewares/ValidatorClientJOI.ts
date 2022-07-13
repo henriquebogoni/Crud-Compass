@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import { Request, Response } from 'express'
+const isValidBirthdate = require('is-valid-birthdate')
 
 export function validateClientJOI(req: Request, res: Response, next: any) {
     const schema = Joi.object({

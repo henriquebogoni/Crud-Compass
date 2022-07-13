@@ -1,8 +1,9 @@
 import { ICity } from '@interfaces/ICitys'
 import { IClient } from '@interfaces/IClient'
-
 import { prismaClient } from '../prismadb/prismaConnect'
 import { generateId } from '@utils/GenerateID';
+const isValidBirthdate = require('is-valid-birthdate')
+
 
 class CreatedClientAndCityBusiness {
     async createCity(city: ICity) {
@@ -16,7 +17,8 @@ class CreatedClientAndCityBusiness {
     }
 
     async createClient(client: IClient) {
-        return await prismaClient.client.create({
+
+        const result = await prismaClient.client.create({
             data: {
                 id: generateId(),
                 name: client.name,
@@ -26,6 +28,12 @@ class CreatedClientAndCityBusiness {
                 city: client.city
             }
         })
+
+        if(isValidBirthdate(client.dateNasc) === true){
+            return result
+        } else{
+            return {message: 'Data inválida, essa pessoa ainda não nasceu'}
+        }
     }
 }
 
