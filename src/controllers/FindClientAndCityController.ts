@@ -6,12 +6,20 @@ const findClientAndCityBusiness = new FindClientAndCityBusiness()
 class FindClientAndCityController {
     async findClient(req: Request, res: Response) {
         const findClient = await findClientAndCityBusiness.findClient(req.query)
-        return res.status(200).json(findClient)
+        if(findClient.length > 0){
+            return res.status(200).json(findClient)
+        }else{
+            return res.status(204).end()
+        }
     }
 
     async findCity(req: Request, res: Response) {
         const findCity = await findClientAndCityBusiness.findCity(req.query)
-        return res.status(200).json(findCity)
+        if(findCity.length > 0){
+            return res.status(200).json(findCity)
+        }else{
+            return res.status(204).end()
+        }
     }
 }
 export {FindClientAndCityController}

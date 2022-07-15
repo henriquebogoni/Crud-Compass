@@ -1,15 +1,13 @@
 import Joi from 'joi';
 import { Request, Response } from 'express'
 
-export function validateClientJOI(req: Request, res: Response, next: any) {
+export function validateClientJOIFind(req: Request, res: Response, next: any) {
     const schema = Joi.object({
         name: Joi.string().required(),
-        sexo: Joi.string().required().valid('M', 'F'),
-        dateNasc: Joi.string().required(),
-        city: Joi.string().required()
+        id: Joi.string().required()
     }).options({ abortEarly: false })
 
-    const { error } = schema.validate(req.body)
+    const { error } = schema.validate(req.query)
     if (error) {
         return res.status(400).send(error.details)
     }

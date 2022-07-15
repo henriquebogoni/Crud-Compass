@@ -5,8 +5,8 @@ const updateClientNameBusiness = new UpdateClientNameBusiness()
 
 class UpdateClientNameController {
     async updateClient(req: Request, res: Response) {
-        const updateClient = await updateClientNameBusiness.updateClient(req.body)
-        res.status(204).json(updateClient)
+        await updateClientNameBusiness.updateClient(req.body)
+        return res.status(204).end()
     }
 }
 export { UpdateClientNameController }

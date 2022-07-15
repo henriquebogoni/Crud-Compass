@@ -279,7 +279,6 @@
         "name",
         "sexo",
         "dateNasc",
-        "age",
         "city"
       ],
       "properties": {
@@ -298,10 +297,6 @@
         "dateNasc": {
           "type": "string",
           "example": "15/4/2022"
-        },
-        "age": {
-          "type": "string",
-          "example": "22"
         },
         "city": {
           "type": "string",

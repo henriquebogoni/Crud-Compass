@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import cors from 'cors';
 
 import routes from '@routes/Routes';
@@ -16,7 +15,6 @@ export class App {
    private midleware() {
       this.express.use(express.json())
       this.express.use(cors())
-      this.express.use(bodyParser.json())
    }
 
    private router() {

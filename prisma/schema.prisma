@@ -19,6 +19,5 @@ model Client {
   name     String
   sexo     String
   dateNasc String
-  age      String
   city     String
 }

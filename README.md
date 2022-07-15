@@ -12,5 +12,5 @@ onde pode ver as tabelas criadas e gerencia-las, OBS: Serve como um banco de dad
 
 Rodar em prod:{
     Rode 'npx tsc' para buildar
-    Rode 'npm run start' para estartar em produção
+    Rode 'docker-compose up' ou 'npm run start' para estartar em produção.
 }

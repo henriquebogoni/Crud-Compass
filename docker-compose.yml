@@ -8,3 +8,16 @@ services:
       - "3000:3000"
     volumes:
       - .:/usr/app
+
+  db:
+    image: mongo
+    container_name: db
+    env_file:
+      - .env
+    environment:
+      - MONGO_DB_USER=${DB_USER}
+      - MONGO_DB_PASSWORD=${DB_PASSWORD}
+      - MONGO_DB_DATABASE=${DB_DATABASE}
+
+
+    

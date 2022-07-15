@@ -5,7 +5,7 @@ class DeleteClientBusiness {
     async deleteClient(client: IClient) {
         return await prismaClient.client.deleteMany({
             where: {
-               name: client.name
+                name: client.name
             }
         })
     }

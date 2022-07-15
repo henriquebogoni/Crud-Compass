@@ -24,7 +24,6 @@ class CreatedClientAndCityBusiness {
                 name: client.name,
                 sexo: client.sexo,
                 dateNasc: client.dateNasc,
-                age: client.age,
                 city: client.city
             }
         })
